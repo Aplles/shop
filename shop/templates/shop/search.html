@@ -1,0 +1,18 @@
+{% extends 'shop/base.html' %}
+
+
+{% block title %}{{ title }}{% endblock %}
+
+
+{% block content %}
+
+    {% if produsts|length > 0 %}
+        {% include 'shop/list_product.html' %}
+    {% else %}
+        <div class="no_product">
+            <h4>Записей не найдено</h4>
+            <p>По Вашему запросу ничего не найдено.</p>
+        </div>
+    {% endif %}
+
+{% endblock %}

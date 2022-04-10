@@ -1,0 +1,26 @@
+{% extends 'shop/base.html' %}
+
+
+{% block title %}{{ title }}{% endblock %}
+
+
+{% block content %}
+
+    <div class="mainblock">
+        <div class="in_main_block">
+
+            {{ form.errors }}
+            <form method="post">
+                {% csrf_token %}
+
+                {% for f in form %}
+                    <label for="">{{ f.label | capfirst }}</label>
+                    {{ f }}
+                {% endfor %}
+                <button type="submit" class="btn btn-primary">Зарегестрироваться</button>
+            </form>
+
+        </div>
+
+    </div>
+{% endblock %}

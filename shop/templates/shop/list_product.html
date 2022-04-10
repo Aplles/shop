@@ -1,0 +1,30 @@
+<div class="row row-cols-1 row-cols-md-4 g-3">
+    {% for product in produsts %}
+        <div class="col">
+            <div class="card my-sm-3 mx-auto">
+                <div class="row g-0">
+                    <img src="{{ product.image.url }}" class="card-img-top">
+                    <div class="card-body">
+                        <h6 class="card-title">Цена: {{ product.price }} руб.</h6>
+                        <p class="card-text">{{ product.name|truncatewords:8}}</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Категория: {{ product.cat }}</li>
+                        <li class="list-group-item">В наличии: {{ product.quantity }}</li>
+                        <li class="list-group-item"><small class="text-muted">Производитель: {{ product.manuf }}</small></li>
+                    </ul>
+                    <div class="">
+                        {% if request.user.is_authenticated %}
+                            <a href="{{ product.get_order_url }} " class="link">
+                                <button type="submit" class="btn btn-primary my_button">Оформить заказ</button>
+                            </a>
+                        {% else %}
+                            <button type="button" class="btn btn-primary my_button disabled">Оформить заказ</button>
+                        {% endif %}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>

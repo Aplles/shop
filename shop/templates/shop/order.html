@@ -1,0 +1,105 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block head %}
+
+    <script>
+
+        function new_price(){
+            let c = document.getElementById('elem1').value;
+            let price = document.getElementById('price').textContent;
+            let new_price = parseInt(price.match(/\d+/))
+            if (c > 0){
+                document.getElementById('new_p').innerHTML=new_price * c +" ₽";
+            }
+            else{
+                document.getElementById('new_p').innerHTML=0 +" ₽";
+            }
+        }
+
+        function unlocked(){
+            let btn = document.querySelector(".order-button");
+            btn.disabled = false;
+        }
+        function myFunc() {
+            var c = document.getElementById('elem1').value;
+            var amount = document.getElementById('elem2').textContent;
+            var numEl = parseInt(amount.match(/\d+/))
+            let btn = document.querySelector(".order-button");   // выбираем элемент с классом block
+            if(c <= 0 || c > numEl){
+                btn.setAttribute('disabled', true);
+            }
+        }
+
+        function minus_amount(){
+            let c = document.getElementById('elem1').value;
+            new_amount = c - 1;
+            if(c > 1){
+                document.getElementById('elem1').value = new_amount;
+                new_price();
+            }
+        }
+        function plus_amount(){
+            var c = Number(document.getElementById('elem1').value);
+            var new_amount = c + 1;
+            document.getElementById('elem1').value = new_amount;
+            new_price();
+        }
+    </script>
+
+{% endblock %}
+
+{% block content %}
+    <div class="parent-order">
+        <form method="get" action="{% url 'new_order' %}">
+            <div class="product-in-order">
+                <h4>Заказ</h4>
+                <div class="order">
+                    <div class="order-img-block"><img src="{{ product.image.url }}" class="order-img"></div>
+                    <div class="info-order">
+                        <p>{{ product.name }}</p>
+                        <p>Модель: {{ product.model }}</p>
+                        <p>Категория: {{ product.cat }}</p>
+                        <p id="elem2">Осталось в наличии: {{ product.quantity }}</p>
+                        <p>Производитель: {{ product.manuf }}</p>
+                    </div>
+                    <div class="order-quantity">
+                        <img src="{% static 'img/minus.svg' %}" alt="" class="img-svg" onmousedown="minus_amount()">
+                        <div><input type="text"  oninput ="new_price()" id="elem1" name="count" value="1" onclick="unlocked()"></div>
+                        <img src="{% static 'img/plus.svg' %}" alt="" class="img-svg" onmousedown="plus_amount()">
+                    </div>
+                    <div class="price">
+                        <p id="price">{{ product.price }} ₽</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="itog-order">
+
+                <div class="itog-block">
+                    <div class="text-itog"><p>Итого</p></div>
+                    <div class="text-price"><p id="new_p">{{ product.price }} ₽</p></div>
+                </div>
+                <div class="comment">
+                    <textarea name="comment" id="text-comment" cols="30" rows="10"></textarea>
+                </div>
+                <div>
+                    <input type="hidden" value="{{ product.slug }}" name="product"/>
+                    <button type="submit" class="btn btn-primary order-button" onclick="myFunc()">Заказать</button>
+                </div>
+
+            </div>
+
+            <div class="dop-info-order">
+                <h4>Способ оплаты и доставки</h4>
+                {% for f in form %}
+                    <label for="">{{ f.label | capfirst }}</label>
+                    <p class="">{{ f }}</p>
+                {% endfor %}
+            </div>
+        </form>
+    </div>
+
+{% endblock content %}
