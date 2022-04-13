@@ -7,5 +7,18 @@
 {% block content %}
 
 
+<div class="main-block-res-order">
+    <div class="main-children-res-order">
+        <img src="{{ order.product.image.url }}" alt="" style="width: 40%">
+        <div class="order-res-info">
+            <h5>Сумма заказа - {{ order.all_price }} ₽</h5>
+            <p>Комментарий: {{ order.comment }}</p>
+            <p>{{ order.amount }} товар(а)</p>
+            <p>Статус доставки: {{ order.delivery_status }}</p>
+        </div>
+        <a href="{% url 'home' %}"><button type="submit" class="btn btn-primary order-res-button">Перейти в магазин</button></a>
+    </div>
+</div>
+
 
 {% endblock %}

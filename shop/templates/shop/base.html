@@ -17,12 +17,10 @@
     {% endblock %}
 </head>
 <body>
-
-
 <div>
     <nav class="navbar navbar-expand-lg navbar-light nav_color">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}">Shop</a>
+            <a class="nav-link" href="{% url 'home' %}">Shop</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -41,24 +39,24 @@
                             {% endfor %}
                         </ul>
                     </li>
+                    {% if request.user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'my_orders' %}">Мои заказы</a>
+                        </li>
+                    {% endif %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'my_orders' %}">Мои заказы</a>
+                        <a class="nav-link" href="{% url 'about' %}">О нас</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">О нас</a>
-                    </li>
-                    {#                <li class="nav-item">#}
-                    {#                  <a class="nav-link disabled">Инактив</a>#}
-                    {#                </li>#}
                     <li class="nav-item">
                         <form class="d-flex" method="get" action="{% url 'search' %}">
-                                <input class="form-control me-2" type="search" name="s" placeholder="" aria-label="Search">
-                                <button class="btn btn-outline-success" type="submit" value="search">Поиск</button>
+                            <input class="form-control me-2" type="search" name="s" placeholder="" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit" value="search">Поиск</button>
                         </form>
                     </li>
                 </ul>
                 {% if request.user.is_authenticated %}
                     <div class="login_user">
+                        <h4>{{ user.username }}</h4>
                         <a href="{% url 'logout' %}"><img src="{% static 'img/icons8-выход-60.png' %}" class="user_png" alt=""></a>
                     </div>
                 {% else %}
@@ -89,6 +87,5 @@
         </footer>
     </div>
 </div>
-
 </body>
 </html>

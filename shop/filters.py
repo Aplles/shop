@@ -9,6 +9,5 @@ class MyFilter(django_filters.FilterSet):
 
     class Meta:
         model = Product
-        fields = {'price': ['gt', 'lt'],
-                  'model': ['exact', 'gte', 'lte'], }
+        fields = {'price': ['gt', 'lt']}
         order_by = ['-id']

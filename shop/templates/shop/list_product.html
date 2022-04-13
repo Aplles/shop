@@ -6,7 +6,7 @@
                     <img src="{{ product.image.url }}" class="card-img-top">
                     <div class="card-body">
                         <h6 class="card-title">Цена: {{ product.price }} руб.</h6>
-                        <p class="card-text">{{ product.name|truncatewords:8}}</p>
+                        <p class="card-text">{{ product.name|slice:"45" }}...</p>
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Категория: {{ product.cat }}</li>
@@ -14,15 +14,16 @@
                         <li class="list-group-item"><small class="text-muted">Производитель: {{ product.manuf }}</small></li>
                     </ul>
                     <div class="">
-                        {% if request.user.is_authenticated %}
+                        {% if request.user.is_authenticated and product.quantity > 0 %}
                             <a href="{{ product.get_order_url }} " class="link">
                                 <button type="submit" class="btn btn-primary my_button">Оформить заказ</button>
                             </a>
+                        {% elif request.user.is_authenticated and product.quantity == 0 %}
+                            <p class="product-close">Данный товар закончился</p>
                         {% else %}
-                            <button type="button" class="btn btn-primary my_button disabled">Оформить заказ</button>
+                            <p class="product-close">Авторизируйтесь, для покупки товара</p>
                         {% endif %}
                     </div>
-
                 </div>
             </div>
         </div>

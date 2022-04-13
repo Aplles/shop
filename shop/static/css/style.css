@@ -119,6 +119,18 @@
     display: none;
 }
 
+.product-close {
+    display: none;
+}
+
+.card:hover .product-close {
+    margin-left: 15px;
+    margin-top: 5px;
+    border: none;
+    display: block;
+    font-weight: 600;
+}
+
 .card:hover .my_button {
     background-color: #A7119C;
     margin: 7px;
@@ -274,7 +286,7 @@
 
 .order-img {
     border: 1px solid #CB11AB;
-    height: 130px;
+    /*height: 130px;*/
     width: 130px;
     margin-left: 20px;
 }
@@ -461,13 +473,13 @@
     box-shadow: none;
 }
 
-.btn-secondary{
+.btn-secondary {
     margin-top: 17px;
     background-color: #A7119C;
     border: none;
 }
 
-.btn-secondary:hover{
+.btn-secondary:hover {
     background-color: #A7119C;
     border: none;
     box-shadow: none;
@@ -476,4 +488,129 @@
 .btn-secondary:focus {
     background-color: #A7119C;
     box-shadow: none;
+}
+
+.nav-link {
+    color: white;
+}
+
+.nav-link:hover {
+    color: black;
+    opacity: 0.8;
+}
+
+#div-order {
+    margin-bottom: 35px;
+}
+
+.order-title {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.list-orders {
+    margin-left: 40px;
+}
+
+.none-order {
+    height: 500px;
+}
+
+.main-block-res-order {
+    box-shadow: 0px 5px 15px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
+    margin: -30px 200px 40px 200px;
+    padding-bottom: 1px;
+}
+
+.main-children-res-order {
+    text-align: center;
+    margin: 100px;
+    padding-top: 30px;
+}
+
+.order-res-info {
+    padding-top: 20px;
+    line-height: 15px;
+}
+
+.order-res-button {
+    width: 30%;
+    border-radius: 8px;
+    background-color: #CB11AB;
+    border: none;
+}
+
+.order-res-button:hover {
+    background-color: #A7119C;
+    box-shadow: none;
+}
+
+.order-res-button:focus {
+    background-color: #A7119C;
+    box-shadow: none;
+}
+
+.div-del-order{
+    display: inline-block;
+    width: 400px;
+    margin: 10px 0 0 15px;
+    padding: 0;
+}
+
+.div-del-order p{
+    display: inline-block;
+    font-size: 20px;
+}
+
+.img-trash{
+    width: 5%;
+}
+
+.link-vk{
+    display: block;
+    margin-top: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 20px;
+    color:black;
+}
+
+.link-vk:hover{
+    color: #A7119C;
+}
+
+.block-paginate{
+
+}
+
+.children-block-paginate{
+    text-align: center;
+    margin: 50px 0;
+}
+
+.children-block-paginate div{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-color: #A7119C;
+    border-radius: 130px;
+}
+
+.children-block-paginate a{
+    color: white;
+    text-decoration: none;
+}
+
+.pag-center{
+    padding: 12px;
+}
+
+.reg-error{
+    position: absolute;
+    left: 100%;
+    top: 0%;
+    width: 350px;
+    height: 100%;
+    margin-left: 40px;
 }

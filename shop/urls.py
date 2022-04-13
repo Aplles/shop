@@ -11,6 +11,9 @@ urlpatterns = [
     path('order/<slug:product_slug>', new_order, name='order'),
     path('add_order/', add_order, name='new_order'),
     path('my_orders/', MyOrders.as_view(), name='my_orders'),
+    path('result_order/', result_order, name='result_order'),
+    path('delete_order/<slug:slug_order>', delete_order, name='del_order'),
+    path('about/', about, name='about'),
 ]
 
 # KaraMax223

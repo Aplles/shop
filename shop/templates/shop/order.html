@@ -21,6 +21,7 @@
 
         function unlocked(){
             let btn = document.querySelector(".order-button");
+            btn.innerHTML="Заказать";
             btn.disabled = false;
         }
         function myFunc() {
@@ -30,6 +31,7 @@
             let btn = document.querySelector(".order-button");   // выбираем элемент с классом block
             if(c <= 0 || c > numEl){
                 btn.setAttribute('disabled', true);
+                btn.innerHTML="Столько товара нет :(";
             }
         }
 
@@ -66,9 +68,9 @@
                         <p>Производитель: {{ product.manuf }}</p>
                     </div>
                     <div class="order-quantity">
-                        <img src="{% static 'img/minus.svg' %}" alt="" class="img-svg" onmousedown="minus_amount()">
-                        <div><input type="text"  oninput ="new_price()" id="elem1" name="count" value="1" onclick="unlocked()"></div>
-                        <img src="{% static 'img/plus.svg' %}" alt="" class="img-svg" onmousedown="plus_amount()">
+                        <img src="{% static 'img/minus.svg' %}" alt="" onclick="unlocked()" class="img-svg" onmousedown="minus_amount()">
+                        <div><input type="text"  oninput ="new_price()" onfocus="unlocked()" id="elem1" name="count" value="1"></div>
+                        <img src="{% static 'img/plus.svg' %}" alt="" onclick="unlocked()" class="img-svg" onmousedown="plus_amount()">
                     </div>
                     <div class="price">
                         <p id="price">{{ product.price }} ₽</p>
@@ -81,9 +83,6 @@
                 <div class="itog-block">
                     <div class="text-itog"><p>Итого</p></div>
                     <div class="text-price"><p id="new_p">{{ product.price }} ₽</p></div>
-                </div>
-                <div class="comment">
-                    <textarea name="comment" id="text-comment" cols="30" rows="10"></textarea>
                 </div>
                 <div>
                     <input type="hidden" value="{{ product.slug }}" name="product"/>

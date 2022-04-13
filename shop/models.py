@@ -120,7 +120,7 @@ class Order(models.Model):
     payment = models.ForeignKey('PaymentMethod', on_delete=models.DO_NOTHING, verbose_name='Способ оплаты')
 
     def __str__(self):
-        return self.pk + "." + self.customer
+        return str(self.pk) + "." + str(self.customer)
 
     class Meta:
         verbose_name = 'Заказ'
