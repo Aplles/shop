@@ -1,0 +1,28 @@
+{% load mytag %}
+<div class="filter-cat">
+    <h5>Категории</h5>
+    {% get_categories as cat %}
+    {% for c in cat %}
+        <p><input class="form-check-input" type="checkbox" value="{{ c }}" id="flexCheckDefault"> {{ c }}</p>
+    {% endfor %}
+</div>
+<div>
+    <h5>Модель</h5>
+    {% get_models as models %}
+    {% for m in models|slice:'5' %}
+        <p><input class="form-check-input" type="checkbox" value="{{ m.model }}" id="flexCheckDefault"> {{ m.model |capfirst }}</p>
+    {% endfor %}
+
+    <button id="show-more-button" onclick="get_more()" class="button-show-more" type="button">Показать больше</button>
+    <div id="more_model" style="display: none">
+        {% for m in models|slice:'5:' %}
+            <p><input class="form-check-input" type="checkbox" value="{{ m.model }}" id="flexCheckDefault"> {{ m.model |capfirst }}
+            </p>
+        {% endfor %}
+    </div>
+    <button id="close-more-button" onclick="close_more()" style="display: none" class="button-show-more" type="button">Скрыть</button>
+</div>
+
+<div>
+    <button type="submit" class="btn btn-primary button-filter">Применить</button>
+</div>

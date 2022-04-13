@@ -16,7 +16,7 @@ class HomePage(ListView):
     ordering = ['id']
 
     def get_queryset(self):
-        if self.request.GET and self.request.GET.get('orderby') != None:
+        if self.request.GET and self.request.GET.get('orderby') is not None:
             return Product.objects.filter(is_availability=True, quantity__gte=0).order_by(self.request.GET.get('orderby'))
         else:
             return Product.objects.filter(is_availability=True, quantity__gte=0)
@@ -53,7 +53,7 @@ class ResSearch(ListView):
     context_object_name = 'produsts'
 
     def get_queryset(self):
-        if self.request.GET and self.request.GET.get('orderby') != None:
+        if self.request.GET and self.request.GET.get('orderby') is not None:
             return Product.objects.filter(is_availability=True, quantity__gte=0, name__icontains=self.request.GET['s']).order_by(
                 self.request.GET.get('orderby'))
         else:

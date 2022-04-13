@@ -1,0 +1,10 @@
+<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+        aria-expanded="false">
+    Сортировать по
+</button>
+<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <li><input type="submit" name="orderby" value="id"></li>
+    <li><input type="submit" name="orderby" value="price"></li>
+    <li><input type="submit" name="orderby" value="-price"></li>
+    <input type="hidden" value="{{ s }}" name="s">
+</ul>

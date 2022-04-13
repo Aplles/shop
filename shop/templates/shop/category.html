@@ -8,39 +8,14 @@
     <div class="filter-block">
         <div class="children-block-filter">
             <form method="GET" action="{% url 'category' cat_slug %}">
-                <div class="filter-cat">
-                    <h5>Категории</h5>
-                    {% get_categories as cat %}
-                    {% for c in cat %}
-                        <p><input class="form-check-input" type="checkbox" value="{{ c }}" id="flexCheckDefault"> {{ c }}</p>
-                    {% endfor %}
-                </div>
-                <div>
-                    <h5>Модель</h5>
-                    {% get_models as models %}
-                    {% for m in models %}
-                        <p><input class="form-check-input" type="checkbox" value="{{ m.model }}" id="flexCheckDefault"> {{ m.model |capfirst }}</p>
-                    {% endfor %}
-                </div>
-
-                <div>
-                    <button type="submit" class="btn btn-primary button-filter">Применить</button>
-                </div>
+                {% include 'shop/left-filter.html' %}
             </form>
         </div>
     </div>
     <div class="product-block">
         <div class="dropdown">
             <form action="{% url 'category' cat_slug %}" method="get" id="sortProduct">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                    Сортировать по
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><input type="submit" name="orderby" value="id"></li>
-                    <li><input type="submit" name="orderby" value="price"></li>
-                    <li><input type="submit" name="orderby" value="-price"></li>
-                </ul>
+                {% include 'shop/order-list.html' %}
             </form>
         </div>
         {% include 'shop/list_product.html' %}

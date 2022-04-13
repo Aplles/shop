@@ -614,3 +614,10 @@
     height: 100%;
     margin-left: 40px;
 }
+
+.button-show-more{
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border: none;
+    background-color: white;
+}

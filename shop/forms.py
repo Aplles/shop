@@ -37,7 +37,7 @@ class CustomRegisterForm(UserCreationForm):
 
 class LoginUserForm(AuthenticationForm):
     username = forms.CharField(label='Почта', max_length=255, widget=forms.TextInput(attrs={'id': 'textArea'}))
-    password = forms.CharField(label='Пароль', required=False,
+    password = forms.CharField(label='Пароль',
                                widget=forms.PasswordInput(attrs={"cols": 40, "rows": 6, 'id': 'textArea'}))
 
 
