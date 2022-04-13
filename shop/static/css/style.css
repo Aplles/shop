@@ -93,9 +93,7 @@
     color: black;
 }
 
-.login_user {
-    position: relative;
-}
+
 
 .user_png {
     width: 30px;
@@ -620,4 +618,19 @@
     margin-bottom: 15px;
     border: none;
     background-color: white;
+}
+
+.user-name{
+    color: white;
+    display: inline-block;
+}
+
+.user-name h4{
+    font-size: 22px;
+    font-weight: 450;
+    text-align: center;
+}
+
+.login_user {
+    display: inline-block;
 }

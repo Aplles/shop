@@ -56,19 +56,21 @@
                     </li>
                 </ul>
                 <div>
-
+                    {% if request.user.is_authenticated %}
+                        <div class="login_user">
+                            <a href="{% url 'logout' %}"><img src="{% static 'img/icons8-выход-60.png' %}" class="user_png" alt=""></a>
+                        </div>
+                        <div class="user-name">
+                            <h4>{{ user.username }}</h4>
+                        </div>
+                    {% else %}
+                        <div class="login_user">
+                            <a class="navbar-brand" id="log" href="{% url 'register' %}"><img src="{% static 'img/user.png' %}" class="user_png"
+                                                                                              alt="">
+                            </a>| <a href="{% url 'login' %}"><img src="{% static 'img/icons8-ключ.svg' %}" class="user_png" alt=""></a>
+                        </div>
+                    {% endif %}
                 </div>
-                {% if request.user.is_authenticated %}
-                    <div class="login_user">
-                        <h4>{{ user.username }}</h4>
-                        <a href="{% url 'logout' %}"><img src="{% static 'img/icons8-выход-60.png' %}" class="user_png" alt=""></a>
-                    </div>
-                {% else %}
-                    <div class="login_user">
-                        <a class="navbar-brand" id="log" href="{% url 'register' %}"><img src="{% static 'img/user.png' %}" class="user_png" alt="">
-                        </a>| <a href="{% url 'login' %}"><img src="{% static 'img/icons8-ключ.svg' %}" class="user_png" alt=""></a>
-                    </div>
-                {% endif %}
             </div>
         </div>
     </nav>
