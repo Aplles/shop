@@ -1,0 +1,43 @@
+{% extends 'shop/base.html' %}
+{% load mytag %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <div class="go-back-product">
+        <a href="{% url 'home' %}">
+            <button type="button" class="btn btn-primary button-back">Назад</button>
+        </a>
+        <h4>{{ product.name }}</h4>
+    </div>
+
+    <div class="product-img">
+        <img class="image-product" src="{{ product.image.url }}" alt="">
+    </div>
+
+    <div class="product-info">
+        <div class="price-product">Цена товара: {{ product.price }} ₽</div>
+        <div class="model-product">Модель товара: {{ product.model }}</div>
+        <div class="aval-product">
+            {% if product.is_availability %}
+                Товар доступен
+            {% else %}
+                Товар не доступен
+            {% endif %}
+        </div>
+        <div>Осталось в наличии {{ product.quantity }}</div>
+        <div class="manuf">Производитель {{ product.manuf }}</div>
+        <div>
+            <a href="{{ product.get_order_url }} " class="link">
+                <button type="submit" class="btn btn-primary go-order-button">Оформить заказ</button>
+            </a>
+        </div>
+    </div>
+
+    <div class="content-product">
+        <h3>Описание</h3>
+        <div>
+            <p>{{ product.content }}</p>
+        </div>
+    </div>
+{% endblock %}

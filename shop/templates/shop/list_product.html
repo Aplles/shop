@@ -6,7 +6,7 @@
                     <img src="{{ product.image.url }}" class="card-img-top">
                     <div class="card-body">
                         <h6 class="card-title">Цена: {{ product.price }} руб.</h6>
-                        <p class="card-text">{{ product.name|slice:"45" }}...</p>
+                        <a href="{{ product.get_absolute_url }}" class="link-product"><p class="card-text">{{ product.name|slice:"45" }}...</p></a>
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Категория: {{ product.cat }}</li>

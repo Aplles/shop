@@ -66,6 +66,9 @@ class Product(models.Model):
     def get_order_url(self):
         return reverse('order', kwargs={'product_slug': self.slug})
 
+    def get_absolute_url(self):
+        return reverse('product-info', kwargs={'product_slug': self.slug})
+
     def __str__(self):
         return self.name
 

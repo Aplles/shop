@@ -12,7 +12,7 @@
                     <div class="order">
                         <div class="order-img-block"><img src="{{ order.product.image.url }}" class="order-img"></div>
                         <div class="info-order">
-                            <p>{{ order.product.name }}</p>
+                            <a href="{{ order.product.get_absolute_url }}" class="link-product"><p>{{ order.product.name }}</p></a>
                             <p>Модель: {{ order.product.model }}</p>
                             <p>Категория: {{ order.product.cat }}</p>
                             <p id="elem2">Кол-во: {{ order.amount }}</p>

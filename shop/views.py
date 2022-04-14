@@ -4,7 +4,7 @@ from django.contrib.auth.views import LoginView
 from shop.forms import *
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, DetailView
 from .models import *
 
 
@@ -162,3 +162,15 @@ def delete_order(request, slug_order):
 
 def about(request):
     return render(request, 'shop/about.html', context={'title': 'О нас'})
+
+
+class ProductInfo(DetailView):
+    model = Product
+    template_name = 'shop/infoProduct.html'
+    context_object_name = 'product'
+    slug_url_kwarg = 'product_slug'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Информация о товаре'
+        return context

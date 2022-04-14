@@ -230,10 +230,6 @@
     text-align: center;
 }
 
-.link {
-    text-decoration: none;
-}
-
 .parent-order { /* Основной блок order */
     margin-left: 40px;
     margin-top: 20px;
@@ -633,4 +629,120 @@
 .login_user {
     display: inline-block;
 }
+
 /*Ура*/
+
+.product-img { /* Общий блок с изображением(слева)*/
+    display: inline-block;
+    width: 40%;
+    height: 600px;
+    margin-top: 15px;
+}
+
+.product-info { /* Общий блок с информацией(справа) */
+    display: inline-block;
+    vertical-align: top;
+    width: 59%;
+    height: 600px;
+    margin-top: 15px;
+    padding-left: 10%;
+    padding-top: 30px;
+}
+
+.image-product {
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 30px;
+}
+
+.content-product { /* Общий блок описания(низ) */
+    padding: 10px 80px 30px 80px;
+    text-align: justify;
+}
+
+.go-back-product {
+    padding-left: 80px;
+    padding-top: 10px;
+}
+
+.go-back-product button {
+    margin-bottom: 15px;
+}
+
+.go-back-product h4 {
+    margin-bottom: 15px;
+}
+
+.button-back {
+    color: #CB11AB;
+    font-weight: 700;
+    background-color: white;
+    border: 2px solid #CB11AB;
+}
+
+.button-back:hover {
+    color: white;
+    font-weight: 700;
+    background-color: #CB11AB;
+    border: 2px solid #CB11AB;
+}
+
+.button-back:focus {
+    color: white;
+    font-weight: 700;
+    background-color: #CB11AB;
+    border: 2px solid #CB11AB;
+}
+
+.price-product{
+    margin-bottom: 40px;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.model-product{
+    margin-bottom: 10px;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.aval-product{
+    margin-bottom: 10px;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.manuf{
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+.go-order-button {
+    color: #CB11AB;
+    font-weight: 700;
+    background-color: white;
+    border: 2px solid #CB11AB;
+}
+
+.go-order-button:hover {
+    color: white;
+    font-weight: 700;
+    background-color: #CB11AB;
+    border: 2px solid #CB11AB;
+}
+
+.go-order-button:focus {
+    color: white;
+    font-weight: 700;
+    background-color: #CB11AB;
+    border: 2px solid #CB11AB;
+}
+
+.link{
+    text-decoration: none;
+}
+
+.link-product{
+    text-decoration: none;
+    color: #A7119C;
+}
