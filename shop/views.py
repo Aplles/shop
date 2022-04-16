@@ -1,6 +1,10 @@
 from random import randint
 from django.contrib.auth import logout, login
 from django.contrib.auth.views import LoginView
+from rest_framework import generics
+from rest_framework.permissions import AllowAny, IsAuthenticated, IsAuthenticatedOrReadOnly, IsAdminUser
+
+from .serializers import *
 from shop.forms import *
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
@@ -174,3 +178,31 @@ class ProductInfo(DetailView):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Информация о товаре'
         return context
+
+
+class ProductApiView(generics.ListAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+
+
+class DestroyProduct(generics.DestroyAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+    permission_classes = (IsAdminUser, )
+
+
+class UpdateProduct(generics.RetrieveUpdateAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+    permission_classes = (IsAdminUser, )
+
+
+class CategoryApiView(generics.ListAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+
+
+class GetMyOrder(generics.ListAPIView):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
+    permission_classes = (IsAuthenticated, )
